@@ -84,22 +84,36 @@ python PIDController/pid_experiments.py     # 完整实验
 | **实验2** | Ki(积分增益)的影响 | `output/experiment_2_ki_effect.png` |
 | **实验3** | Kd(微分增益)的影响 | `output/experiment_3_kd_effect.png` |
 | **实验4** | PID参数综合调节 | `output/experiment_4_combined_tuning.png` |
+| **实验5** | CartPole倒立摆(PID vs RL) | `output/cartpole_pid_control.png` |
+| **实验6** | MPC模型预测控制(CartPole) | `output/mpc_cartpole_comparison.png` |
+| **实验7** | MPC温度控制 ⭐ 推荐入门 | `output/mpc_temperature_control.png` |
 
 ### 📚 核心功能
 
-#### PID控制器 (`PIDController/pid_controller.py`)
+#### PID控制器 (`PIDController/`)
 - ✅ 完整的PID算法实现
 - ✅ 支持P、I、D各项独立调节
 - ✅ 输出限幅功能
 - ✅ 历史数据记录
+- ✅ CartPole倒立摆控制实验
+
+#### MPC控制器 (`MPCController/`)
+- ✅ 非线性MPC（基于优化）
+- ✅ 线性MPC（更快速）
+- ✅ 自适应MPC（智能调节）
+- ✅ 预测时域和控制时域可配置
+- ✅ 温度控制示例（推荐入门）⭐
+- ✅ CartPole对比实验（高级）
 
 #### 模拟系统 (`PIDController/simulated_system.py`)
 - ✅ 一阶系统 (温度、液位等)
 - ✅ 二阶系统 (机械系统、电机等)
 - ✅ 噪声模拟
 
-#### 实验模块 (`PIDController/pid_experiments.py`)
-- ✅ 4个详细实验
+#### 实验模块
+- ✅ PID: 4个详细实验
+- ✅ MPC: 温度控制示例（适合学习MPC原理）
+- ✅ MPC: CartPole对比实验（展示MPC能力）
 - ✅ 性能指标计算
 - ✅ 专业可视化
 
@@ -109,6 +123,8 @@ python PIDController/pid_experiments.py     # 完整实验
 |------|------|------|
 | 📘 **使用说明** | 详细的使用指南和API文档 | `doc/使用说明.md` |
 | 📊 **实验报告** | 完整的实验数据和分析 | `doc/实验报告.md` |
+| 🎯 **MPC控制器说明** | MPC原理与实验指南 ⭐ | `doc/MPC控制器说明.md` |
+| 🆚 **PID vs RL对比** | CartPole控制方法对比 | `doc/PID_vs_RL_对比.md` |
 | 📄 **项目导航** | 项目结构和快速开始(本文件) | `README.md` |
 
 ### 🎯 学习路径
@@ -126,10 +142,14 @@ python PIDController/pid_experiments.py     # 完整实验
 4. 尝试控制不同的系统
 
 #### 高级应用
-1. 实现自适应PID
-2. 添加前馈控制
-3. 实现抗积分饱和
-4. 连接实际硬件测试
+1. 学习MPC模型预测控制
+   - 先运行 `python start.py mpc-temp`（温度控制，推荐入门）
+   - 再运行 `python start.py mpc`（CartPole，挑战高级）
+   - 查看 `doc/MPC控制器说明.md` 理解MPC原理
+2. 实现自适应PID
+3. 添加前馈控制
+4. 实现抗积分饱和
+5. 连接实际硬件测试
 
 ### 💡 PID参数速查
 

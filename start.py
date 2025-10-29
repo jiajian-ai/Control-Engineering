@@ -39,6 +39,9 @@ def show_menu():
     print("  python start.py exp2     # 实验2: Ki参数影响")
     print("  python start.py exp3     # 实验3: Kd参数影响")
     print("  python start.py exp4     # 实验4: PID综合调节")
+    print("  python start.py cartpole # 实验5: CartPole倒立摆 (PID vs RL)")
+    print("  python start.py mpc      # 实验6: MPC模型预测控制 (CartPole)")
+    print("  python start.py mpc-temp # 实验7: MPC温度控制 (直观示例)")
     print("\n快捷方式 Shortcuts:")
     print("  python start.py          # 显示此菜单")
     print("  python start.py help     # 显示帮助信息")
@@ -73,6 +76,75 @@ def run_all():
         main()
         print("\n✅ 所有实验完成！查看 output/ 目录")
         print("✅ All experiments completed! Check output/ folder\n")
+    except Exception as e:
+        print(f"\n❌ 错误: {e}\n")
+        import traceback
+        traceback.print_exc()
+
+
+def run_cartpole():
+    """运行CartPole实验"""
+    print("\n🚀 运行CartPole倒立摆实验...")
+    print("🚀 Running CartPole experiment...\n")
+    try:
+        from cartpole_pid import run_cartpole_experiment, compare_pid_vs_rl
+        run_cartpole_experiment()
+        compare_pid_vs_rl()
+        print("\n✅ CartPole实验完成！查看 output/cartpole_pid_control.png")
+        print("✅ CartPole experiment completed! Check output/cartpole_pid_control.png")
+        print("📖 详细对比分析请查看: doc/PID_vs_RL_对比.md\n")
+    except Exception as e:
+        print(f"\n❌ 错误: {e}\n")
+        import traceback
+        traceback.print_exc()
+
+
+def run_mpc():
+    """运行MPC实验 (CartPole)"""
+    print("\n🚀 运行MPC模型预测控制实验 (CartPole)...")
+    print("🚀 Running MPC experiment (CartPole)...\n")
+    try:
+        # Add MPCController to path
+        import sys
+        import os
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'MPCController'))
+        
+        from mpc_cartpole_experiment import run_mpc_cartpole_experiment, print_mpc_comparison
+        run_mpc_cartpole_experiment()
+        print_mpc_comparison()
+        print("\n✅ MPC实验完成！查看 output/mpc_cartpole_comparison.png")
+        print("✅ MPC experiment completed! Check output/mpc_cartpole_comparison.png")
+        print("📖 详细说明请查看: doc/MPC控制器说明.md\n")
+    except Exception as e:
+        print(f"\n❌ 错误: {e}\n")
+        import traceback
+        traceback.print_exc()
+
+
+def run_mpc_temperature():
+    """运行MPC温度控制实验"""
+    print("\n🚀 运行MPC温度控制实验 (更直观的示例)...")
+    print("🚀 Running MPC Temperature Control (Intuitive Example)...\n")
+    try:
+        # Add MPCController to path
+        import sys
+        import os
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'MPCController'))
+        
+        from mpc_temperature_control import (
+            run_temperature_control_experiment,
+            demonstrate_mpc_prediction,
+            print_temperature_mpc_tutorial
+        )
+        
+        print_temperature_mpc_tutorial()
+        demonstrate_mpc_prediction()
+        run_temperature_control_experiment()
+        
+        print("\n✅ MPC温度控制实验完成！查看 output/mpc_temperature_control.png")
+        print("✅ MPC Temperature Control completed! Check output/mpc_temperature_control.png")
+        print("📖 这是一个更直观的MPC示例，适合初学者理解MPC原理")
+        print("📖 This is a more intuitive MPC example for beginners\n")
     except Exception as e:
         print(f"\n❌ 错误: {e}\n")
         import traceback
@@ -137,6 +209,12 @@ def main():
         run_single_experiment(3)
     elif command == 'exp4':
         run_single_experiment(4)
+    elif command == 'cartpole':
+        run_cartpole()
+    elif command == 'mpc':
+        run_mpc()
+    elif command == 'mpc-temp':
+        run_mpc_temperature()
     else:
         print(f"\n❌ 未知命令: {command}")
         print("💡 使用 'python start.py' 查看可用命令\n")

@@ -8,7 +8,7 @@ PID控制器包
 from .pid_controller import PIDController
 from .simulated_system import FirstOrderSystem, SecondOrderSystem, SystemWithNoise
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "Control Engineering Lab"
 
 __all__ = [
