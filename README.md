@@ -23,24 +23,49 @@ Control-Engineering/
 │
 ├── 📄 README.md                    # 项目导航(本文件)
 ├── 📄 requirements.txt             # Python依赖包
+├── 📄 CONTROL_ENGINEERING_OUTLINE.md # 控制工程课程大纲
+├── 📄 start.py                     # 项目启动脚本
 │
-├── 📁 PIDController/               # 源代码目录
+├── 📁 PIDController/               # PID控制器源代码
 │   ├── pid_controller.py          # PID控制器核心实现
 │   ├── simulated_system.py        # 模拟被控系统(一阶/二阶)
 │   ├── pid_experiments.py         # 完整实验代码
 │   ├── quick_demo.py              # 快速演示脚本
+│   ├── cartpole_pid.py            # CartPole倒立摆PID控制
 │   └── run_all_demos.py           # 一键运行所有实验
+│
+├── 📁 MPCController/               # MPC控制器源代码
+│   ├── mpc_controller.py          # MPC控制器核心实现
+│   ├── mpc_cartpole_experiment.py # CartPole MPC实验
+│   └── mpc_temperature_control.py # 温度控制MPC实验
 │
 ├── 📁 output/                      # 实验输出图片
 │   ├── quick_demo.png             # 快速演示结果
 │   ├── experiment_1_kp_effect.png # 实验1: Kp参数影响
 │   ├── experiment_2_ki_effect.png # 实验2: Ki参数影响
 │   ├── experiment_3_kd_effect.png # 实验3: Kd参数影响
-│   └── experiment_4_combined_tuning.png # 实验4: PID综合调节
+│   ├── experiment_4_combined_tuning.png # 实验4: PID综合调节
+│   ├── cartpole_pid_control.png   # CartPole PID控制结果
+│   ├── mpc_cartpole_comparison.png # MPC CartPole对比实验
+│   └── mpc_temperature_control.png # MPC温度控制结果
 │
 └── 📁 doc/                         # 文档目录
     ├── 实验报告.md                 # 详细实验报告
-    └── 使用说明.md                 # 完整使用指南
+    ├── 使用说明.md                 # 完整使用指南
+    ├── MPC控制器说明.md            # MPC控制器详细说明
+    ├── PID_vs_RL_对比.md          # PID与强化学习对比
+    ├── 第1章_控制工程基础.md       # 第1章：控制工程基础
+    ├── 第2章_系统动力学与响应.md   # 第2章：系统动力学与响应
+    ├── 第3章_PID控制与工程调节.md  # 第3章：PID控制与工程调节
+    ├── 第4章_现代控制理论基础.md   # 第4章：现代控制理论基础
+    ├── 第5章_先进控制方法入门.md   # 第5章：先进控制方法入门
+    ├── 第6章_典型工程案例分析.md   # 第6章：典型工程案例分析
+    ├── 第7章_仿真工具与实验平台.md # 第7章：仿真工具与实验平台
+    ├── 第8章_控制系统设计综合.md   # 第8章：控制系统设计综合
+    └── figures/                    # 图片资源目录
+        ├── 开环vs闭环控制.png
+        ├── 控制系统框图.png
+        └── 时域响应性能指标.png
 ```
 
 ### 🚀 快速开始
@@ -125,6 +150,15 @@ python PIDController/pid_experiments.py     # 完整实验
 | 📊 **实验报告** | 完整的实验数据和分析 | `doc/实验报告.md` |
 | 🎯 **MPC控制器说明** | MPC原理与实验指南 ⭐ | `doc/MPC控制器说明.md` |
 | 🆚 **PID vs RL对比** | CartPole控制方法对比 | `doc/PID_vs_RL_对比.md` |
+| 📚 **课程大纲** | 控制工程完整课程大纲 | `CONTROL_ENGINEERING_OUTLINE.md` |
+| 📖 **第1章** | 控制工程基础 | `doc/第1章_控制工程基础.md` |
+| 📖 **第2章** | 系统动力学与响应 | `doc/第2章_系统动力学与响应.md` |
+| 📖 **第3章** | PID控制与工程调节 | `doc/第3章_PID控制与工程调节.md` |
+| 📖 **第4章** | 现代控制理论基础 | `doc/第4章_现代控制理论基础.md` |
+| 📖 **第5章** | 先进控制方法入门 | `doc/第5章_先进控制方法入门.md` |
+| 📖 **第6章** | 典型工程案例分析 | `doc/第6章_典型工程案例分析.md` |
+| 📖 **第7章** | 仿真工具与实验平台 | `doc/第7章_仿真工具与实验平台.md` |
+| 📖 **第8章** | 控制系统设计综合 | `doc/第8章_控制系统设计综合.md` |
 | 📄 **项目导航** | 项目结构和快速开始(本文件) | `README.md` |
 
 ### 🎯 学习路径
